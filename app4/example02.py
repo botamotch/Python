@@ -46,12 +46,14 @@ slider_2 = wx.Slider(panel, style=wx.SL_HORIZONTAL | wx.SL_AUTOTICKS | wx.SL_LAB
 slider_2.SetMin(-100)
 slider_2.SetMax(100)
 slider_2.SetValue(0)
+slider_2.Bind(wx.EVT_SLIDER, slider_value_change)
 # slider_2.Bind(wx.EVT_SLIDER, slider_value_change)
 # パイロット
 slider_3 = wx.Slider(panel, style=wx.SL_HORIZONTAL | wx.SL_AUTOTICKS | wx.SL_LABELS)
 slider_3.SetMin(0)
 slider_3.SetMax(100)
 slider_3.SetValue(5)
+slider_3.Bind(wx.EVT_SLIDER, slider_value_change)
 # slider_3.Bind(wx.EVT_SLIDER, slider_value_change)
 
 # プロット領域作成
