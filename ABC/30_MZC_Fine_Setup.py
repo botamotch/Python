@@ -76,6 +76,7 @@ print('Bias Sweep ==============================================================
 
 # BIAS_BOL_HEX = ['E4FE', '0DB6', 'F123', '1581', '0000', '0000']
 # BIAS_BOL_INT = [(int(x_hex,16) & 0x7FFF) - 0x8000 * (int(x_hex,16) >> 15) for x_hex in BIAS_BOL_HEX]
+BIAS_BOL_INT = []
 
 _, stdout, _ = ssh.exec_command(CMD_BIAS_BOL_GET)
 for l in stdout:
