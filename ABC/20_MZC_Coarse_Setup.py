@@ -23,6 +23,8 @@ DAC_RANGE = 0xFFFF # スキャン範囲[HEX]
 DAC_STEP  = 0x0400 # スキャンステップ[HEX]
 
 SWEEP_CH = [0,1,2,3] # スイープするｃｈ（XI,XQ,YI,YQの順に並ぶ）
+FILENAME_BASE = './Log/20_MZC_Coarse_Setup_{}.txt'
+HEADER        = 'DAC_P,DAC_N,ADC_P,ADC_N,MPD_LO_out,MPD_HI_out,MPD_LO'
 
 # COSA Inspection data ---------------------------------------------------------
 
@@ -163,10 +165,10 @@ for i in SWEEP_CH:
     for l in stdout:
         OUTPUT.append(l.strip('\n'))
 
-    FILENAME = './Log/20_MZC_Coarse_Setup_{}.txt'.format(['XI', 'XQ', 'YI', 'YQ'][i])
+    FILENAME = FINELANE_BASE.format(['XI', 'XQ', 'YI', 'YQ'][i])
     print(' Output data : {}'.format(FILENAME))
     with open('{}'.format(FILENAME), 'w') as f:
-        f.write('DAC_P,DAC_N,ADC_P,ADC_N,MPD_LO_out,MPD_HI_out,MPD_LO\n')
+        f.write('{}\n'.format(HEADER))
         for l in OUTPUT:
             f.write('{}\n'.format(l))
 

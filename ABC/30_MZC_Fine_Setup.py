@@ -20,6 +20,8 @@ POWER_RANGE = 12.0 #[mW]
 POWER_SKIP  =  0.2 #[mW]
 
 SWEEP_CH = [0,1,2,3]
+FILENAME_BASE = './Log/30_MZC_Fine_Setup_{}.txt'
+HEADER        = 'ERROR_MON,DIFF_MON,MPD_MON,BIAS_MON'
 
 # CMD --------------------------------------------------------------------------
 
@@ -107,10 +109,10 @@ for i in SWEEP_CH:
     for l in stdout:
         OUTPUT.append(l.replace(' ', '').strip('\n'))
 
-    FILENAME = './Log/30_MZC_Fine_Setup_{}.txt'.format(ch)
+    FILENAME = FINELANE_BASE.format(ch)
     print(' Output data : {}'.format(FILENAME))
     with open('{}'.format(FILENAME), 'w') as f:
-        f.write('ERROR_MON,DIFF_MON,MPD_MON,BIAS_MON\n')
+        f.write('{}\n'.format(HEADER))
         for l in OUTPUT:
             f.write('{}\n'.format(l))
 
