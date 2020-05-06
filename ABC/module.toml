@@ -1,0 +1,8 @@
+[common]
+IP_MOD = "10.21.78.200"
+# IP_MOD = "10.21.78.204"
+# IP_MOD = "10.21.78.205"
+
+COSA = "ES1M006"
+COSA_file = "./COSA Inspection data.xlsx"
+
