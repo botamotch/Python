@@ -1,5 +1,25 @@
 # Python training
 
+## Int16 <> HEX
+
+```py
+# Int16 to HEX
+
+for val in [100,-100]:
+    print('# INT : {0:4d} > HEX : {1:04X}'.format(val, val if val > 0 else 0x10000+val))
+
+# INT :  100 > HEX : 0064
+# INT : -100 > HEX : FF9C
+
+# HEX to Int16
+
+for val in ['0064','FF9C']:
+    print('# HEX : {0} > INT : {1:4d}'.format( val, int(val,16)-0x10000 if int(val,16) >> 15 else int(val,16) ))
+
+# HEX : 0064 >  INT :  100
+# HEX : FF9C >  INT : -100
+```
+
 ## Matplotlib
 ### `plt.figure()`, `fig.add_subplot()`
 ```py
