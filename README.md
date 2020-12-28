@@ -3,8 +3,6 @@
 ## Int16 <> HEX
 
 ```py
-# Int16 to HEX
-
 for val in [100,-100]:
     print('# INT : {0:4d} > HEX : {1:04X}'.format(val, val if val > 0 else 0x10000+val))
 
@@ -71,6 +69,21 @@ canvas.draw()
 
 frame.Show()
 app.MainLoop()
+```
+
+### PDFファイルに複数ページを埋め込み
+```py
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+
+pp = PdfPages('output_multiple.pdf')
+
+fig1, axs1 = plt.subplots(1, 1,figsize=(7, 7),dpi=100)
+fig2, axs2 = plt.subplots(1, 1,figsize=(7, 7),dpi=100)
+
+pp.savefig(fig1)
+pp.savefig(fig2)
+pp.close()
 ```
 
 ## wxPython
