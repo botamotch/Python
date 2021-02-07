@@ -3,8 +3,10 @@
 ## Int16 <> HEX
 
 ```py
+import numpy as np
 for val in [100,-100]:
     print('# INT : {0:4d} > HEX : {1:04X}'.format(val, val if val > 0 else 0x10000+val))
+    print('# INT : {0:4d} > HEX : {1:04X}'.format(val, np.uint16(val)))
 
 # INT :  100 > HEX : 0064
 # INT : -100 > HEX : FF9C
@@ -13,6 +15,7 @@ for val in [100,-100]:
 
 for val in ['0064','FF9C']:
     print('# HEX : {0} > INT : {1:4d}'.format( val, int(val,16)-0x10000 if int(val,16) >> 15 else int(val,16) ))
+    print('# HEX : {0} > INT : {1:4d}'.format( val, np.int16(int(val,16))))
 
 # HEX : 0064 >  INT :  100
 # HEX : FF9C >  INT : -100
